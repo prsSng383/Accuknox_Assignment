@@ -8,25 +8,25 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-export default function ImageRiskAssessment() {
+export default function ImageSecurityChart() {
   // Chart data
   const data = [
     {
-      name: "Vulnerabilities",
-      Critical: 9,
-      High: 150,
-      Medium: 1100,
-      Low: 211,
+      name: "Security Issues",
+      Critical: 5,
+      High: 20,
+      Medium: 50,
+      Low: 10,
     },
   ];
 
   return (
     <div className="px-4 py-3">
-      <h3 className="font-semibold mb-1">Image Risk Assessment</h3>
+      <h3 className="font-semibold mb-1">Image Security Issues</h3>
       <div className="text-2xl font-bold">
-        1470{" "}
+        85{" "}
         <span className="font-normal text-base text-gray-700">
-          Total Vulnerabilities
+          Total Issues
         </span>
       </div>
 
@@ -53,19 +53,19 @@ export default function ImageRiskAssessment() {
       <div className="flex gap-5 mt-2 text-sm">
         <div className="flex items-center gap-2">
           <span className="w-3 h-3 bg-[#941a1d] rounded inline-block"></span>
-          Critical (9)
+          Critical (5)
         </div>
         <div className="flex items-center gap-2">
           <span className="w-3 h-3 bg-[#f09e1c] rounded inline-block"></span>
-          High (150)
+          High (20)
         </div>
         <div className="flex items-center gap-2">
           <span className="w-3 h-3 bg-[#ece977] rounded inline-block"></span>
-          Medium (1100)
+          Medium (50)
         </div>
         <div className="flex items-center gap-2">
           <span className="w-3 h-3 bg-[#888] rounded inline-block"></span>
-          Low (211)
+          Low (10)
         </div>
       </div>
     </div>

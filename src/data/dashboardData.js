@@ -24,6 +24,14 @@ export const initialDashboard = {
         { id: "security_issues", name: "Image Security Issues", text: null },
       ],
     },
+    {
+      id: "ticket",
+      name: "Tickets Dashboard",
+      widgets: [
+        { id: "ticket_1", name: "Ticket Widget One", text: null },
+        { id: "ticket_2", name: "Ticket Widget Two", text: null },
+      ],
+    },
   ],
 };
 

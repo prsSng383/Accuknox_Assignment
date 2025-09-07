@@ -1,13 +1,14 @@
 import { PieChart, Pie, Cell } from "recharts";
 
-const COLORS = ["#3b82f6", "#93c5fd"];
+const COLORS = ["#f87171", "#34d399", "#facc15"];
 const data = [
-  { name: "Connected", value: 2 },
-  { name: "Not Connected", value: 2 },
+  { name: "High Priority", value: 3 },
+  { name: "Medium Priority", value: 2 },
+  { name: "Low Priority", value: 1 },
 ];
 
-export default function CloudAccountsChart() {
-  const total = data.reduce((acc, cur) => acc + cur.value, 0);
+export default function TicketOverview() {
+  const total = data.reduce((a, b) => a + b.value, 0);
 
   return (
     <div className="flex flex-col sm:flex-row items-center justify-center w-full gap-4">
@@ -37,7 +38,7 @@ export default function CloudAccountsChart() {
           <div key={i} className="flex items-center gap-2">
             <span
               className={`w-3 h-3 rounded-full inline-block`}
-              style={{ backgroundColor: COLORS[i] }}
+              style={{ backgroundColor: COLORS[i % COLORS.length] }}
             ></span>
             <span className="text-sm text-gray-700">{item.name} ({item.value})</span>
           </div>
