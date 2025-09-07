@@ -18,15 +18,15 @@ export default function App() {
   const [newWidgetName, setNewWidgetName] = useState("");
   const [newWidgetChart, setNewWidgetChart] = useState("Text");
 
-  // Sidebar widgets state (predefined + user-added)
+  
   const [sidebarWidgets, setSidebarWidgets] = useState(() => ({ ...widgetOptions }));
 
-  // Persist dashboard to localStorage
+  
   useEffect(() => {
     localStorage.setItem("dashboard", JSON.stringify(dashboard));
   }, [dashboard]);
 
-  // Update selectedWidgets when activeTab changes
+  
   useEffect(() => {
     const categoryId =
       activeTab === "image"
@@ -50,7 +50,7 @@ export default function App() {
   };
 
   const confirmAddWidgets = () => {
-    // Add new widget to sidebar list if name provided
+    
     let newWidget = null;
     if (newWidgetName) {
       newWidget = {
@@ -65,7 +65,6 @@ export default function App() {
       setSelectedWidgets((prev) => new Set(prev.add(newWidget.id)));
     }
 
-    // Update dashboard
     setDashboard((prevDashboard) => ({
       ...prevDashboard,
       categories: prevDashboard.categories.map((cat) => {
@@ -100,7 +99,7 @@ export default function App() {
     }));
   };
 
-  // Filter widgets on home page search
+  
   const filteredDashboard = {
     ...dashboard,
     categories: dashboard.categories.map((cat) => ({
@@ -108,7 +107,7 @@ export default function App() {
       widgets: cat.widgets
         .filter((w) => w.name.toLowerCase().includes(searchQuery.toLowerCase()))
         .sort((a, b) => {
-          // Bring search matches to top
+          
           if (searchQuery && a.name.toLowerCase().includes(searchQuery.toLowerCase()))
             return -1;
           return 0;
@@ -118,7 +117,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4">
-      {/* Header + Search */}
+      
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-3">
         <h1 className="text-xl font-bold">CNAPP Dashboard</h1>
         <div className="flex flex-col md:flex-row gap-3 items-start md:items-center">
@@ -182,7 +181,7 @@ export default function App() {
         ))}
       </div>
 
-      {/* Add Widget Sidebar */}
+      {/* Widget Sidebar */}
       {showAddWidget && (
         <div className="fixed inset-0 z-50 flex">
           <div
@@ -272,7 +271,7 @@ export default function App() {
               </select>
             </div>
 
-            {/* Confirm/Cancel */}
+            {/* Confirm-Cancel */}
             <div className="flex justify-end gap-4 mt-auto">
               <button
                 className="border border-blue-900 px-4 py-1 rounded text-blue-900"
